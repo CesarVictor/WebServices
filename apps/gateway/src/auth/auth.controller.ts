@@ -9,6 +9,7 @@ import {
   Req,
 } from '@nestjs/common';
 import { type ClientGrpc } from '@nestjs/microservices';
+import { ApiBearerAuth } from '@nestjs/swagger';
 import {
   type LoginResponse,
   type User,
@@ -36,6 +37,7 @@ export class AuthController implements OnModuleInit {
   }
 
   /** Read from the token itself: no call to the user service */
+  @ApiBearerAuth()
   @Get('me')
   me(@Req() request: AuthenticatedRequest): User {
     return request.user;

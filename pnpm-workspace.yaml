@@ -8,5 +8,7 @@ engineStrict: true
 
 # Dependencies allowed to run their install scripts
 allowBuilds:
+  # Install telemetry of swagger-ui-dist
+  '@scarf/scarf': false
   # Version check only
   protobufjs: false
