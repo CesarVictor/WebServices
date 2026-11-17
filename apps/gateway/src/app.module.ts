@@ -2,14 +2,14 @@ import { Module, ValidationPipe } from '@nestjs/common';
 import { APP_FILTER, APP_GUARD, APP_PIPE } from '@nestjs/core';
 import { ClientsModule } from '@nestjs/microservices';
 import { grpcOptions } from '@recipes/contracts/grpc';
- 
+
 import { AuthController } from './auth/auth.controller.js';
 import { AuthGuard } from './auth/auth.guard.js';
 import { ErrorFilter } from './common/error.filter.js';
 import { USER_CLIENT } from './common/grpc.js';
 import { config } from './config.js';
 import { HealthController } from './health.controller.js';
- 
+
 @Module({
   controllers: [AuthController, HealthController],
   imports: [

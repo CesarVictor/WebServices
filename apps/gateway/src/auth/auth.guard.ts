@@ -1,4 +1,4 @@
-	import type { User } from '@recipes/contracts';
+import type { User } from '@recipes/contracts';
 import type { Request } from 'express';
 
 import {

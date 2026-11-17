@@ -1,4 +1,4 @@
-	import type { HydratedDocument, Model } from 'mongoose';
+import type { HydratedDocument, Model } from 'mongoose';
 
 import { status } from '@grpc/grpc-js';
 import { Controller } from '@nestjs/common';
