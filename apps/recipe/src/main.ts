@@ -1,10 +1,16 @@
 import { NestFactory } from '@nestjs/core';
+import { grpcOptions } from '@recipes/contracts/grpc';
 
 import { AppModule } from './app.module.js';
+import { config } from './config.js';
 
 async function bootstrap() {
-  // Connected to recipe-db, but no route yet: the gRPC server comes in part 2
-  const app = await NestFactory.createApplicationContext(AppModule);
+  // Same as the user service: a gRPC server, the contract comes from recipe.proto
+  const app = await NestFactory.createMicroservice(
+    AppModule,
+    grpcOptions('recipe', config.grpcUrl),
+  );
   app.enableShutdownHooks();
+  await app.listen();
 }
 await bootstrap();
